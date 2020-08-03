@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
+import ImageItem from './components/ImageItem'
 
 class App extends Component {
     constructor(props) {
@@ -37,17 +38,14 @@ class App extends Component {
     }
 
     render() {
-        const {currentIndex, pictures } = this.state
+        const {currentIndex, pictures} = this.state
+
         return (
-            <section className='app'>
-                <div className='imgWrapper' key={pictures[currentIndex].id}>
-                    <img className='img' src={pictures[currentIndex].url} alt={pictures[currentIndex].alt}/>
-                </div>
-            </section>
-
-        )
+            <>
+                <ImageItem picture={pictures[currentIndex]}/>
+            </>
+        );
     }
-
 }
 
-export default App;
+export default App
