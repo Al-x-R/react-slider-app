@@ -127,32 +127,34 @@ class Carousel extends Component {
         return (
             <article className={styles.carousel}>
                 <section className={styles.slideItem}>
-                    <ButtonItem className={`${styles.prevBtn} ${styles.btn}`} handler={this.prevBtnClick}
+                    <ButtonItem title={'previous slide'}
+                                className={`${styles.prevBtn} ${styles.btn}`} handler={this.prevBtnClick}
                                 icon={<Icon path={mdiSkipPreviousOutline} size={2} color="white"/>}
                     />
                     <ImageItem className={styles.slideItem} picture={pictures[currentIndex]}/>
-                    <ButtonItem className={`${styles.nextBtn} ${styles.btn}`} handler={this.nextBtnClick}
+                    <ButtonItem title={'next slide'}
+                                className={`${styles.nextBtn} ${styles.btn}`} handler={this.nextBtnClick}
                                 icon={<Icon path={mdiSkipNextOutline} size={2} color="white"/>}
                     />
                     <div className={styles.controls}>
                         <div className={styles.controlsItems}>
-                            <span className={styles.controlsTitle}>Slides show</span>
                             <div className={styles.controlButtons}>
-                                <ButtonItem className={styles.btn} handler={this.play}
+                                <ButtonItem title={'start auto slides show'} className={styles.btn} handler={this.play}
                                             icon={<Icon path={mdiPlay} size={1} color="white"/>}
                                 />
-                                <ButtonItem className={styles.btn} handler={this.stop}
+                                <ButtonItem title={'stop auto slides show'} className={styles.btn} handler={this.stop}
                                             icon={<Icon path={mdiStop} size={1} color="white"/>}
                                 />
                             </div>
                         </div>
                         <div className={styles.controlsItems}>
-                            <span className={styles.controlsTitle}>Show speed control</span>
                             <div className={styles.controlButtons}>
-                                <ButtonItem className={styles.btn} handler={this.speedUp}
+                                <ButtonItem title={'increase the speed of the slide show'}
+                                            className={styles.btn} handler={this.speedUp}
                                             icon={<Icon path={mdiChevronUp} size={1} color="white"/>}
                                 />
-                                <ButtonItem className={styles.btn} handler={this.speedDown}
+                                <ButtonItem title={'decrease the speed of the slide show'}
+                                            className={styles.btn} handler={this.speedDown}
                                             icon={<Icon path={mdiChevronDown} size={1} color="white"/>}
                                 />
                             </div>
