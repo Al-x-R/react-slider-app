@@ -4,12 +4,10 @@ function ImageItem(props) {
     const {picture} = props
 
     return (
-        <div className='imgWrapper'>
-            <img className='img'
+            <img
                  src={picture.url}
                  alt={picture.alt}
             />
-        </div>
     )
 }
 

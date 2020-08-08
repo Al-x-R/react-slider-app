@@ -6,6 +6,7 @@ import {
     mdiSkipNextOutline, mdiSkipPreviousOutline,
     mdiPlay, mdiStop, mdiChevronUp, mdiChevronDown
 } from '@mdi/js';
+import styles from './Carousel.module.scss'
 
 class Carousel extends Component {
     constructor(props) {
@@ -124,34 +125,45 @@ class Carousel extends Component {
         const {currentIndex, pictures} = this.state
 
         return (
-            <article> {/* carousel */}
-                <section> {/* slide */}
-                    <ButtonItem handler={this.prevBtnClick}
-                                icon={<Icon path={mdiSkipPreviousOutline} size={2} color="red"/>}
+            <article className={styles.carousel}> {/* carousel */}
+                <section className={styles.slideItem}> {/* slide */}
+                    <ButtonItem className={`${styles.prevBtn} ${styles.btn}`} handler={this.prevBtnClick}
+                                icon={<Icon path={mdiSkipPreviousOutline} size={2} color="white"/>}
                     />
-                    <ImageItem picture={pictures[currentIndex]}/>
+                    <ImageItem className={styles.slideItem} picture={pictures[currentIndex]}/>
 
 
-                    <ButtonItem handler={this.nextBtnClick}
-                                icon={<Icon path={mdiSkipNextOutline} size={2} color="red"/>}
+                    <ButtonItem className={`${styles.nextBtn} ${styles.btn}`} handler={this.nextBtnClick}
+                                icon={<Icon path={mdiSkipNextOutline} size={2} color="white"/>}
                     />
+                    <div className={styles.controls}> {/* controls */}
+                        <div className={styles.controlsItems}>
+                            <span className={styles.controlsTitle}>Slides show</span>
+                            <div className={styles.controlButtons}>
+                                <ButtonItem className={styles.btn} handler={this.play}
+                                            icon={<Icon path={mdiPlay} size={1} color="white"/>}
+                                />
+                                <ButtonItem className={styles.btn} handler={this.stop}
+                                            icon={<Icon path={mdiStop} size={1} color="white"/>}
+                                />
+                            </div>
+
+                        </div>
+                        <div className={styles.controlsItems}>
+                            <span className={styles.controlsTitle}>Show speed control</span>
+                            <div className={styles.controlButtons}>
+                                <ButtonItem className={styles.btn} handler={this.speedUp}
+                                            icon={<Icon path={mdiChevronUp} size={1} color="white"/>}
+                                />
+                                <ButtonItem className={styles.btn} handler={this.speedDown}
+                                            icon={<Icon path={mdiChevronDown} size={1} color="white"/>}
+                                />
+                            </div>
+
+                        </div>
+                    </div>
                 </section>
-                <div> {/* controls */}
-                    <span>Auto Play</span>
-                    <ButtonItem handler={this.play}
-                                icon={<Icon path={mdiPlay} size={2} color="black"/>}
-                    />
-                    <ButtonItem handler={this.stop}
-                                icon={<Icon path={mdiStop} size={2} color="black"/>}
-                    />
-                    <span>Speed control</span>
-                    <ButtonItem handler={this.speedUp}
-                                icon={<Icon path={mdiChevronUp} size={2} color="black"/>}
-                    />
-                    <ButtonItem handler={this.speedDown}
-                                icon={<Icon path={mdiChevronDown} size={2} color="black"/>}
-                    />
-                </div>
+
             </article>
         )
     }
