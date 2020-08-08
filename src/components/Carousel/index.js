@@ -4,7 +4,7 @@ import ButtonItem from "../ButtonItem"
 import Icon from '@mdi/react'
 import {
     mdiSkipNextOutline, mdiSkipPreviousOutline,
-    mdiPlay, mdiStop, mdiChevronUp, mdiChevronDown
+    mdiPlay, mdiStop, mdiChevronUp, mdiChevronDown, mdiFullscreen
 } from '@mdi/js';
 import styles from './Carousel.module.scss'
 
@@ -12,6 +12,7 @@ class Carousel extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            isFullScreen: false,
             autoPlay: false,
             currentSpeed: 5000,
             maxSpeed: 1000,
@@ -121,12 +122,30 @@ class Carousel extends Component {
         this.clear()
     }
 
+    fullScreenMode = () => {
+        const {isFullScreen} = this.state
+
+        if (isFullScreen) {
+            this.setState({
+                isFullScreen: false
+            })
+        } else {
+            this.setState({
+                isFullScreen: true
+            })
+        }
+    }
+
     render() {
-        const {currentIndex, pictures} = this.state
+        const {currentIndex, pictures, isFullScreen} = this.state
 
         return (
-            <article className={styles.carousel}>
+            <article className={`${isFullScreen ? styles.carouselFullScreen : styles.carousel}`}>
                 <section className={styles.slideItem}>
+                    <ButtonItem title={'full screen'}
+                                className={`${styles.fullScreenBtn} ${styles.btn}`} handler={this.fullScreenMode}
+                                icon={<Icon path={mdiFullscreen} size={2} color="white"/>}
+                    />
                     <ButtonItem title={'previous slide'}
                                 className={`${styles.prevBtn} ${styles.btn}`} handler={this.prevBtnClick}
                                 icon={<Icon path={mdiSkipPreviousOutline} size={2} color="white"/>}
