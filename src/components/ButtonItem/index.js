@@ -2,10 +2,10 @@ import React from "react"
 
 const ButtonItem = (props) => {
 
-    const {handler, icon, className} = props
+    const {handler, icon, className, title} = props
 
     return (
-        <button className={className} onClick={handler}>
+        <button className={className} onClick={handler} title={title}>
             {icon}
         </button>
     )
