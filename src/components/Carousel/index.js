@@ -91,7 +91,6 @@ class Carousel extends Component {
         this.timeoutId = null
     }
 
-
     componentDidUpdate(prevProps, prevState) {
         const {autoPlay, currentSpeed} = this.state;
         this.clear();

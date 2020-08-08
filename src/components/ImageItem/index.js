@@ -4,10 +4,10 @@ function ImageItem(props) {
     const {picture} = props
 
     return (
-            <img
-                 src={picture.url}
-                 alt={picture.alt}
-            />
+        <img
+            src={picture.url}
+            alt={picture.alt}
+        />
     )
 }
 
