@@ -125,18 +125,16 @@ class Carousel extends Component {
         const {currentIndex, pictures} = this.state
 
         return (
-            <article className={styles.carousel}> {/* carousel */}
-                <section className={styles.slideItem}> {/* slide */}
+            <article className={styles.carousel}>
+                <section className={styles.slideItem}>
                     <ButtonItem className={`${styles.prevBtn} ${styles.btn}`} handler={this.prevBtnClick}
                                 icon={<Icon path={mdiSkipPreviousOutline} size={2} color="white"/>}
                     />
                     <ImageItem className={styles.slideItem} picture={pictures[currentIndex]}/>
-
-
                     <ButtonItem className={`${styles.nextBtn} ${styles.btn}`} handler={this.nextBtnClick}
                                 icon={<Icon path={mdiSkipNextOutline} size={2} color="white"/>}
                     />
-                    <div className={styles.controls}> {/* controls */}
+                    <div className={styles.controls}>
                         <div className={styles.controlsItems}>
                             <span className={styles.controlsTitle}>Slides show</span>
                             <div className={styles.controlButtons}>
@@ -147,7 +145,6 @@ class Carousel extends Component {
                                             icon={<Icon path={mdiStop} size={1} color="white"/>}
                                 />
                             </div>
-
                         </div>
                         <div className={styles.controlsItems}>
                             <span className={styles.controlsTitle}>Show speed control</span>
@@ -159,11 +156,9 @@ class Carousel extends Component {
                                             icon={<Icon path={mdiChevronDown} size={1} color="white"/>}
                                 />
                             </div>
-
                         </div>
                     </div>
                 </section>
-
             </article>
         )
     }
